@@ -10,14 +10,11 @@ build/
 *.tsbuildinfo
 
 # Environment variables
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
 # IDE files
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -88,3 +85,6 @@ jspm_packages/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+config.bat
+temp_auto_push.bat
+temp_interactive_push.bat

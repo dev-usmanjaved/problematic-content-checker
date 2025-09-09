@@ -1,0 +1,97 @@
+### Health Check
+GET http://localhost:3000/health
+
+### Get Examples
+GET http://localhost:3000/examples
+
+### Get Statistics
+GET http://localhost:3000/stats
+
+### Test Clean Content
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "I love spending time with my family and friends. Today was a beautiful day at the park!",
+  "metadata": {
+    "author": "user123",
+    "platform": "twitter"
+  }
+}
+
+### Test Spam Content
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "Click here for free money! Limited time offer, get rich quick scheme!"
+}
+
+### Test Hate Speech
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "I hate all people of that religion, they are subhuman and should be eliminated"
+}
+
+### Test Violence Threat
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "I will kill you if you don't stop bothering me, I have detailed bomb making instructions"
+}
+
+### Test Self-harm Content
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "I want to end my life, can someone tell me suicide methods and cutting tips?"
+}
+
+### Test Harassment
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "You are an ugly piece of shit, nobody likes you, kill yourself. I found your personal information and home address."
+}
+
+### Test Misinformation
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "Vaccines cause autism and infertility, the election was completely rigged and stolen, climate change is a hoax"
+}
+
+### Test Batch Processing
+POST http://localhost:3000/moderate/batch
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "text": "I love my family and friends!",
+      "metadata": {"author": "user1"}
+    },
+    {
+      "text": "Click here for free money, limited time offer!",
+      "metadata": {"author": "spammer"}
+    },
+    {
+      "text": "I hate all people of that religion",
+      "metadata": {"author": "hater"}
+    }
+  ]
+}
+
+### Test Multiple Categories
+POST http://localhost:3000/moderate
+Content-Type: application/json
+
+{
+  "text": "Kill yourself you worthless piece of shit, here's how to make a bomb to blow up the school, vaccines cause autism"
+}
